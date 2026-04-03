@@ -1,0 +1,93 @@
+body {
+  background-image: url("images/sunnyImage.png");
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#container {
+  width: 80%;
+  height: 50%;
+  padding: 30px;
+  border-radius: 15px; /* rounded corners */
+  background: rgba(255, 255, 255, 0.2); /* semi-transparent white */
+  backdrop-filter: blur(2px); /* the “frosted glass” blur */
+
+  border: 1px solid rgba(255, 255, 255, 0.3); /* subtle border */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); /* soft shadow */
+  color: white; /* text color */
+  text-align: center;
+}
+.right {
+  display: flex;
+  flex-direction: column; /* stack div2 above div3 */
+  align-items: center; /* center them horizontally */
+  gap: 10px;
+}
+#container h2 {
+  font-size: 2rem;
+}
+
+input,
+button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8%;
+  border-style: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.currentWeather {
+  display: none;
+}
+
+.currentWeather.show{
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(2px);
+  color: black;
+  padding: 10px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center; /* vertical alignment */
+  justify-content: center; /* centers the right section */
+  gap: 20px;
+}
+
+#cityName {
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(173, 128, 43);
+}
+
+#temp {
+  font-size: 20px;
+}
+.days:empty {
+  display: none;
+}
+.future {
+  display: flex;
+  flex-direction: row; /* row is default */
+  flex-wrap: nowrap; /* all in one line */
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
+  gap: 15px;
+  /* optional spacing between items */
+}
+.future div {
+  background-color: rgba(34, 34, 165, 0.322);
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5%;
+  flex-grow: 1;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.days {
+  font-size: 20px;
+}
