@@ -63,7 +63,7 @@ function getTodayName() {
 async function name(city) {
   try {
     geoAPI = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`,
     );
     if (!geoAPI.ok) {
       console.log("API Error:", errData.message);
