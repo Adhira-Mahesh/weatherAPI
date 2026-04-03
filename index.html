@@ -4,19 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather API</title>
+    <!-- Premium Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div id="container">
-      <h2>Weather Forecast!</h2>
-      <input
-        type="text"
-        name="cityName"
-        id="name"
-        placeholder="Enter City Name "
-      />
-      <button id="searchBtn">search</button>
-      <div class="currentWeather"><div id="icon"></div><div class="right"><div id="cityName"></div><div id="temp"></div></div>
+      <div class="header">
+        <h2>Weather Forecast</h2>
+        <p>Discover the weather in every city you love</p>
+      </div>
+
+      <div class="search-box">
+        <i class="fa-solid fa-location-dot location-icon"></i>
+        <input
+          type="text"
+          name="cityName"
+          id="name"
+          placeholder="Enter City Name..."
+          autocomplete="off"
+        />
+        <button id="searchBtn">
+          <i class="fa-solid fa-cloud-sun"></i>
+        </button>
+      </div>
+
+      <div class="currentWeather">
+        <div id="icon" class="weather-icon-main"></div>
+        <div class="right">
+          <div id="cityName"></div>
+          <div id="temp"></div>
+        </div>
       </div>
 
       <div class="future">
@@ -27,6 +47,6 @@
       </div>
     </div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

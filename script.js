@@ -1,3 +1,8 @@
+function kelvinToCelsius(kelvin) {
+    let celsius = kelvin - 273.15;
+    let rounded = celsius.toFixed(2);
+    return rounded;
+}
 async function weather(lat, lon) {
   try {
     const weatherAPI = await fetch(
@@ -9,7 +14,8 @@ async function weather(lat, lon) {
     }
     const weatherData = await weatherAPI.json();
  
-    let currentTemp = weatherData.main["temp"];
+    let Temp = weatherData.main["temp"];
+    let currentTemp= kelvinToCelsius(Temp)
     let description = weatherData.weather[0]["description"];
     let icon = weatherData.weather[0]["icon"];
     return [currentTemp, description, icon];
@@ -24,10 +30,10 @@ async function forecast(lat, lon) {
     );
     forecastData = await forecastAPI.json();
 
-   let day1temp = forecastData.list[8].main.temp;
-    let day2temp = forecastData.list[16].main.temp;
-    let day3temp = forecastData.list[24].main.temp;
-    let day4temp = forecastData.list[32].main.temp;
+   let day1temp = kelvinToCelsius(forecastData.list[8].main.temp);
+    let day2temp = kelvinToCelsius(forecastData.list[16].main.temp);
+    let day3temp = kelvinToCelsius(forecastData.list[24].main.temp);
+    let day4temp = kelvinToCelsius(forecastData.list[32].main.temp);
 
     let icon1 = forecastData.list[8].weather[0].icon;
     let icon2 = forecastData.list[16].weather[0].icon;
@@ -102,16 +108,22 @@ async function updatepage() {
 
 `;
   document.getElementById("temp").innerHTML = `
-    Temperature = ${call.weatherInfo[0]}K
-          <br />
-          ${call.weatherInfo[1]}`;
-  document.getElementById("day1").innerHTML = ` 
+    <div class="temp-val">${call.weatherInfo[0]}°C</div>
+    <div class="temp-desc">${call.weatherInfo[1]}</div>`;
+  document.getElementById("day1").innerHTML = `
+    <div class="day-name">${date[0].substring(0, 3)}</div>
     <img src="https://openweathermap.org/img/wn/${call.forecastInfo[4]}@2x.png">
-    ${date[0]} <br /> <br/> ${call.forecastInfo[0]}k`;
-  document.getElementById("day2").innerHTML =
-    `  <img src="https://openweathermap.org/img/wn/${call.forecastInfo[5]}@2x.png"> ${date[1]} <br /> <br/>  ${call.forecastInfo[1]}K`;
-  document.getElementById("day3").innerHTML =
-    `  <img src="https://openweathermap.org/img/wn/${call.forecastInfo[6]}@2x.png">${date[2]} <br /> <br/>  ${call.forecastInfo[2]}k`;
-  document.getElementById("day4").innerHTML =
-    `  <img src="https://openweathermap.org/img/wn/${call.forecastInfo[7]}@2x.png">${date[3]} <br /> <br/>  ${call.forecastInfo[3]} K`;
+    <div class="day-temp">${call.forecastInfo[0]}°C</div>`;
+  document.getElementById("day2").innerHTML = `
+    <div class="day-name">${date[1].substring(0, 3)}</div>
+    <img src="https://openweathermap.org/img/wn/${call.forecastInfo[5]}@2x.png">
+    <div class="day-temp">${call.forecastInfo[1]}°C</div>`;
+  document.getElementById("day3").innerHTML = `
+    <div class="day-name">${date[2].substring(0, 3)}</div>
+    <img src="https://openweathermap.org/img/wn/${call.forecastInfo[6]}@2x.png">
+    <div class="day-temp">${call.forecastInfo[2]}°C</div>`;
+  document.getElementById("day4").innerHTML = `
+    <div class="day-name">${date[3].substring(0, 3)}</div>
+    <img src="https://openweathermap.org/img/wn/${call.forecastInfo[7]}@2x.png">
+    <div class="day-temp">${call.forecastInfo[3]}°C</div>`;
 }
