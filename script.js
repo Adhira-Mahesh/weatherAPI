@@ -1,7 +1,7 @@
 async function weather(lat, lon) {
   try {
     const weatherAPI = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`,
+      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=a81bd1fdeb2b2e1393e366cf5be977bd`,
     );
     if (!weatherAPI.ok) {
       console.log("API Error:", errData.message);
@@ -20,7 +20,7 @@ async function weather(lat, lon) {
 async function forecast(lat, lon) {
   try {
     const forecastAPI = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${API_KEY}`,
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=a81bd1fdeb2b2e1393e366cf5be977bd`,
     );
     forecastData = await forecastAPI.json();
 
@@ -63,7 +63,7 @@ function getTodayName() {
 async function name(city) {
   try {
     geoAPI = await fetch(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${API_KEY}`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=a81bd1fdeb2b2e1393e366cf5be977bd`,
     );
     if (!geoAPI.ok) {
       console.log("API Error:", errData.message);
